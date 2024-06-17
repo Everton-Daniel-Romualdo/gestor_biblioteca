@@ -32,6 +32,14 @@ public class Livro {
         return generos;
     }
 
+    private int encontrarVaga(){
+        for(int i = 0;i < this.generos.length;i++){
+            if(this.generos[i] == null){
+                return i;
+            }
+        }
+        return 0;
+    }
     public boolean hasGenero(String genero){
         for(String s : this.generos){
             if(genero.equals(s)){
@@ -39,6 +47,11 @@ public class Livro {
             }
         }
         return false;
+    }
+
+    public void adicionarGenero(String genero){
+        int i = encontrarVaga();
+        this.generos[i] = genero;
     }
 
     @Override
